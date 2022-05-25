@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Empresas" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IEmpresas_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://webservprod.informconf.com.py/Services/Empresas.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://webservprod.informconf.com.py/Services/Empresas.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="https://webservprod.informconf.com.py/Services/Empresas.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmpresas_RazonSocial_InputMessage">
+    <wsdl:part name="parameters" element="tns:RazonSocial" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_RazonSocial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RazonSocialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_RazonSocial_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_DemandasResumen_InputMessage">
+    <wsdl:part name="parameters" element="tns:DemandasResumen" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_DemandasResumen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DemandasResumenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_DemandasResumen_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InhibicionesResumen_InputMessage">
+    <wsdl:part name="parameters" element="tns:InhibicionesResumen" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InhibicionesResumen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InhibicionesResumenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InhibicionesResumen_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_ConvocatoriasResumen_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvocatoriasResumen" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_ConvocatoriasResumen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvocatoriasResumenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_ConvocatoriasResumen_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_QuiebrasResumen_InputMessage">
+    <wsdl:part name="parameters" element="tns:QuiebrasResumen" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_QuiebrasResumen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QuiebrasResumenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_QuiebrasResumen_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_RematesResumen_InputMessage">
+    <wsdl:part name="parameters" element="tns:RematesResumen" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_RematesResumen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RematesResumenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_RematesResumen_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesActividad_InputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesActividad" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesActividad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesActividad_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesResumen_InputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesResumen" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesResumen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesResumenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesResumen_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesActividadAdefi_InputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesActividadAdefi" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesActividadAdefi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesActividadAdefiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesActividadAdefi_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesResumenAdefi_InputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesResumenAdefi" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesResumenAdefi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesResumenAdefiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesResumenAdefi_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InhabilitacionesResumen_InputMessage">
+    <wsdl:part name="parameters" element="tns:InhabilitacionesResumen" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InhabilitacionesResumen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InhabilitacionesResumenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InhabilitacionesResumen_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_SolicitudesDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitudesDetalle" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_SolicitudesDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitudesDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_SolicitudesDetalle_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_Controlado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Controlado" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_Controlado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ControladoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_Controlado_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaControlado_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaControlado" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaControlado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaControladoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaControlado_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionNegativa_InputMessage">
+    <wsdl:part name="parameters" element="tns:InformacionNegativa" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionNegativa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InformacionNegativaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionNegativa_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionPositiva_InputMessage">
+    <wsdl:part name="parameters" element="tns:InformacionPositiva" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionPositiva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InformacionPositivaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionPositiva_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionActualizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:InformacionActualizacion" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionActualizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InformacionActualizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_InformacionActualizacion_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaMorosidades_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaMorosidades" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaMorosidades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaMorosidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaMorosidades_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesCE30_InputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesCE30" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesCE30_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MorosidadesCE30Response" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_MorosidadesCE30_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_Agropecuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Agropecuario" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_Agropecuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgropecuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_Agropecuario_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaAgropecuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaAgropecuario" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaAgropecuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaAgropecuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresas_AltaAgropecuario_ErrorDataFault_FaultMessage">
+    <wsdl:part name="detail" element="ErrorData" />
+  </wsdl:message>
+  <wsdl:portType name="IEmpresas">
+    <wsdl:operation name="RazonSocial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/RazonSocial" message="tns:IEmpresas_RazonSocial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/RazonSocialResponse" message="tns:IEmpresas_RazonSocial_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/RazonSocialErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_RazonSocial_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DemandasResumen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/DemandasResumen" message="tns:IEmpresas_DemandasResumen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/DemandasResumenResponse" message="tns:IEmpresas_DemandasResumen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/DemandasResumenErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_DemandasResumen_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InhibicionesResumen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/InhibicionesResumen" message="tns:IEmpresas_InhibicionesResumen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/InhibicionesResumenResponse" message="tns:IEmpresas_InhibicionesResumen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/InhibicionesResumenErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_InhibicionesResumen_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvocatoriasResumen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/ConvocatoriasResumen" message="tns:IEmpresas_ConvocatoriasResumen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/ConvocatoriasResumenResponse" message="tns:IEmpresas_ConvocatoriasResumen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/ConvocatoriasResumenErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_ConvocatoriasResumen_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QuiebrasResumen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/QuiebrasResumen" message="tns:IEmpresas_QuiebrasResumen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/QuiebrasResumenResponse" message="tns:IEmpresas_QuiebrasResumen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/QuiebrasResumenErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_QuiebrasResumen_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RematesResumen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/RematesResumen" message="tns:IEmpresas_RematesResumen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/RematesResumenResponse" message="tns:IEmpresas_RematesResumen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/RematesResumenErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_RematesResumen_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesActividad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesActividad" message="tns:IEmpresas_MorosidadesActividad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesActividadResponse" message="tns:IEmpresas_MorosidadesActividad_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesActividadErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_MorosidadesActividad_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesResumen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesResumen" message="tns:IEmpresas_MorosidadesResumen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesResumenResponse" message="tns:IEmpresas_MorosidadesResumen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesResumenErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_MorosidadesResumen_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesActividadAdefi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesActividadAdefi" message="tns:IEmpresas_MorosidadesActividadAdefi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesActividadAdefiResponse" message="tns:IEmpresas_MorosidadesActividadAdefi_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesActividadAdefiErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_MorosidadesActividadAdefi_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesResumenAdefi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesResumenAdefi" message="tns:IEmpresas_MorosidadesResumenAdefi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesResumenAdefiResponse" message="tns:IEmpresas_MorosidadesResumenAdefi_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesResumenAdefiErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_MorosidadesResumenAdefi_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InhabilitacionesResumen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/InhabilitacionesResumen" message="tns:IEmpresas_InhabilitacionesResumen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/InhabilitacionesResumenResponse" message="tns:IEmpresas_InhabilitacionesResumen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/InhabilitacionesResumenErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_InhabilitacionesResumen_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SolicitudesDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/SolicitudesDetalle" message="tns:IEmpresas_SolicitudesDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/SolicitudesDetalleResponse" message="tns:IEmpresas_SolicitudesDetalle_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/SolicitudesDetalleErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_SolicitudesDetalle_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Controlado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/Controlado" message="tns:IEmpresas_Controlado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/ControladoResponse" message="tns:IEmpresas_Controlado_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/ControladoErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_Controlado_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaControlado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/AltaControlado" message="tns:IEmpresas_AltaControlado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/AltaControladoResponse" message="tns:IEmpresas_AltaControlado_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/AltaControladoErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_AltaControlado_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InformacionNegativa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/InformacionNegativa" message="tns:IEmpresas_InformacionNegativa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/InformacionNegativaResponse" message="tns:IEmpresas_InformacionNegativa_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/InformacionNegativaErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_InformacionNegativa_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InformacionPositiva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/InformacionPositiva" message="tns:IEmpresas_InformacionPositiva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/InformacionPositivaResponse" message="tns:IEmpresas_InformacionPositiva_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/InformacionPositivaErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_InformacionPositiva_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InformacionActualizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/InformacionActualizacion" message="tns:IEmpresas_InformacionActualizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/InformacionActualizacionResponse" message="tns:IEmpresas_InformacionActualizacion_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/InformacionActualizacionErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_InformacionActualizacion_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaMorosidades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/AltaMorosidades" message="tns:IEmpresas_AltaMorosidades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/AltaMorosidadesResponse" message="tns:IEmpresas_AltaMorosidades_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/AltaMorosidadesErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_AltaMorosidades_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesCE30">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesCE30" message="tns:IEmpresas_MorosidadesCE30_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesCE30Response" message="tns:IEmpresas_MorosidadesCE30_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/MorosidadesCE30ErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_MorosidadesCE30_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Agropecuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/Agropecuario" message="tns:IEmpresas_Agropecuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/AgropecuarioResponse" message="tns:IEmpresas_Agropecuario_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/AgropecuarioErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_Agropecuario_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaAgropecuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresas/AltaAgropecuario" message="tns:IEmpresas_AltaAgropecuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresas/AltaAgropecuarioResponse" message="tns:IEmpresas_AltaAgropecuario_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IEmpresas/AltaAgropecuarioErrorDataFault" name="ErrorDataFault" message="tns:IEmpresas_AltaAgropecuario_ErrorDataFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmpresas" type="tns:IEmpresas">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IEmpresas_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RazonSocial">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/RazonSocial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DemandasResumen">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/DemandasResumen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InhibicionesResumen">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/InhibicionesResumen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConvocatoriasResumen">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/ConvocatoriasResumen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QuiebrasResumen">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/QuiebrasResumen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RematesResumen">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/RematesResumen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesActividad">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/MorosidadesActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesResumen">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/MorosidadesResumen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesActividadAdefi">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/MorosidadesActividadAdefi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesResumenAdefi">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/MorosidadesResumenAdefi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InhabilitacionesResumen">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/InhabilitacionesResumen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SolicitudesDetalle">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/SolicitudesDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Controlado">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/Controlado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltaControlado">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/AltaControlado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InformacionNegativa">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/InformacionNegativa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InformacionPositiva">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/InformacionPositiva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InformacionActualizacion">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/InformacionActualizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltaMorosidades">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/AltaMorosidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MorosidadesCE30">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/MorosidadesCE30" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Agropecuario">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/Agropecuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AltaAgropecuario">
+      <soap:operation soapAction="http://tempuri.org/IEmpresas/AltaAgropecuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorDataFault">
+        <soap:fault use="literal" name="ErrorDataFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Empresas">
+    <wsdl:port name="BasicHttpBinding_IEmpresas" binding="tns:BasicHttpBinding_IEmpresas">
+      <soap:address location="https://webservprod.informconf.com.py/Services/Empresas.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
